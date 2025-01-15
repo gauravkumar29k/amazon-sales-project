@@ -1,87 +1,86 @@
 # 1
 ---
 
-### Code:
+### **Code**:  
 ```python
-df = pd.read_csv("/kaggle/input/amazon-sales-dataset/amazon.csv")
+df = pd.read_csv(r"C:\Users\sachi\python\projects\amazon.csv")
 ```
 
 ---
 
-### Explanation:
-
-#### 1. **`df`**  
-   - **What it is?**  
-     `df` ek **variable** hai jo ek DataFrame ko store karega.  
-     - **DataFrame**: Pandas ka ek data structure hota hai jo table ke format (rows aur columns) me data ko store karta hai (Excel ya SQL table ke jaise).  
-
-   - **Why it’s used?**  
-     DataFrame me hum data ko easily manipulate, analyze, aur visualize kar sakte hain.
+### 1. **`df`**
+   - **Type**: **Variable**
+   - **Explanation**: `df` ek variable hai jisme hum data store karenge. Yahan pe `df` ka use **DataFrame** ko represent karne ke liye kiya gaya hai. DataFrame ek 2D data structure hota hai jo tabular data ko represent karta hai (like a table with rows and columns).
+   - **In Simple Terms**: `df` me jo data hoga, wo tabular form (rows aur columns) me store hoga.
 
 ---
 
-#### 2. **`pd`**
-   - **What it is?**  
-     `pd` ek **alias (short name)** hai jo Pandas library ke liye use hota hai.  
-     Humne Pandas ko import karte waqt yeh define kiya tha:
+### 2. **`pd`**
+   - **Type**: **Alias (Short Name)**
+   - **Explanation**: `pd` ek alias hai jo **pandas** library ke liye use ho raha hai. Aap pandas ko full name se bhi use kar sakte ho, lekin **`pd`** ek commonly used shorthand hai jo readability ko improve karta hai.
+   - **In Simple Terms**: `pd` ek short form hai, jo hum pandas ko call karne ke liye use karte hain. 
+   - **Example**: 
      ```python
      import pandas as pd
      ```
 
-   - **Why it’s used?**  
-     Shorter naam hone ki wajah se code concise aur readable hota hai. Har baar `pandas.read_csv` likhne ki jagah hum `pd.read_csv` likh sakte hain.
+---
+
+### 3. **`read_csv`**
+   - **Type**: **Function**
+   - **Explanation**: `read_csv` pandas ka ek function hai jo **CSV (Comma Separated Values)** file ko read (load) karne ke liye use hota hai. Yeh function CSV file ko read karne ke baad **DataFrame** ke form me data ko return karta hai.
+   - **In Simple Terms**: `read_csv` ka kaam hai ek CSV file ko read karna aur us data ko tabular form me convert karna.
 
 ---
 
-#### 3. **`read_csv`**
-   - **What it is?**  
-     `read_csv` Pandas ka ek **function** hai jo CSV (Comma-Separated Values) file ko read karta hai aur usse ek DataFrame me convert karta hai.
+### 4. **`r"C:\Users\sachi\python\projects\amazon.csv"`**
+   - **Type**: **Raw String (String with Path)**
+   - **Explanation**: Yeh ek **string** hai jisme file ka path diya gaya hai. `r` ka matlab hai **raw string**, jiska use **escape characters** ko ignore karne ke liye hota hai. Matlab, agar aap path likh rahe hain, toh aapko backslashes (`\`) ko escape karne ki zarurat nahi hoti.
+   - **In Simple Terms**: `r` ka matlab hai **raw string**, aur yeh path ke beech jo backslash hai unko special characters ke tarah treat nahi karega.
 
-   - **How it works?**  
-     - Path me di gayi CSV file ko load karta hai.
-     - File ke contents ko rows aur columns ke form me organize karta hai.
-     - Agar headers (column names) file me hain, toh automatically use kar leta hai. Agar nahi hain, toh unhe define karna padta hai.
-
-   - **Example**: Agar CSV file me yeh data hai:
-     ```
-     Name, Age, Salary
-     Alice, 25, 50000
-     Bob, 30, 60000
-     ```
-     Toh `read_csv` isse ek DataFrame me aise convert karega:
-     ```
-         Name  Age  Salary
-     0   Alice   25   50000
-     1     Bob   30   60000
-     ```
+   **Example**:
+   ```python
+   path = r"C:\Users\sachi\python\projects\amazon.csv"
+   ```
 
 ---
 
-#### 4. **`"/kaggle/input/amazon-sales-dataset/amazon.csv"`**
-   - **What it is?**  
-     Yeh string hai jo CSV file ka **path** specify kar rahi hai.  
-     - `/kaggle/input/amazon-sales-dataset/` folder ke andar file `amazon.csv` hai.
-     - Kaggle platform pe file paths aise hoti hain.
+### Complete Explanation:
+1. **`pd.read_csv(r"C:\Users\sachi\python\projects\amazon.csv")`**:
+   - Yeh **pandas** ka function **`read_csv`** hai jo file path `r"C:\Users\sachi\python\projects\amazon.csv"` se **CSV file** ko read karega.
+   - File ke andar jo data hai usko **DataFrame** ke format me convert karega (rows and columns).
+   
+2. **`df =`**:
+   - Yeh DataFrame ko **`df`** variable me store kar raha hai. Matlab, jo data aapne CSV file se read kiya hai, wo `df` me store ho jayega.
 
-   - **Why it’s used?**  
-     Jis location pe CSV file stored hai, us path ko batane ke liye. File ko load karne ke liye accurate path zaruri hai.
-
----
-
-### Working Summary:
-1. `read_csv` function **CSV file ko load karta hai** jo specified path pe hai.
-2. Data ko Pandas DataFrame (table format) me convert karta hai.
-3. Final output `df` variable me store hoti hai, jo ab ek DataFrame hai.
+### Example Process:
+1. `pd.read_csv(r"C:\Users\sachi\python\projects\amazon.csv")` CSV file ko load karega aur data ko pandas ke **DataFrame** me convert karega.
+2. **`df`** me yeh data store ho jayega.
 
 ---
 
-### Element-wise Explanation:
-| **Element**     | **What it is called in Python?**                   | **Purpose**                                              |
-|------------------|---------------------------------------------------|----------------------------------------------------------|
-| `df`            | Variable                                           | DataFrame store karne ke liye.                           |
-| `pd`            | Alias (shortcut) for Pandas                       | Pandas library ke functions ko call karne ke liye.       |
-| `read_csv`      | Function                                           | CSV file ko read karke DataFrame banata hai.             |
-| `"..."`         | String (file path)                                | CSV file ka location specify karta hai.                  |
+### Final Example:
+
+```python
+import pandas as pd
+
+# File path
+df = pd.read_csv(r"C:\Users\sachi\python\projects\amazon.csv")
+
+# DataFrame ka preview
+print(df.head())  # This will print the first 5 rows of the DataFrame
+```
+
+Is code ka output hoga: `df` me stored Amazon sales data ke first 5 rows.
+
+---
+
+### Elements Breakdown:
+
+- **`df`**: Variable (to store the data)
+- **`pd`**: Alias for pandas library
+- **`read_csv`**: Function to read the CSV file
+- **File Path**: Location of the CSV file on your system
 
 ---
 
@@ -138,5 +137,299 @@ pd.set_option('display.max_columns', None)
 ### **In Short:**
 - **Command:** `pd.set_option('display.max_columns', None)`
 - **Purpose:** DataFrame ke **saare columns dikhane** ke liye, truncate na ho.
+----
+# 3 
+---
+### **Code**:  
+```python
+df.head(5)
+```
 
-Agar aapko aur display settings ke examples chahiye, toh batao! 😊
+---
+
+### **Explanation:**
+
+#### 1. **What does it do?**
+- `df.head(5)` ek Pandas function hai jo DataFrame (`df`) ke **top 5 rows** ko display karta hai.  
+- Iska matlab hai ki DataFrame ka **starting ka sample data** dikhana.  
+
+---
+
+#### 2. **How does it work?**
+- **`head(n)`**:
+  - **`n`**: Number of rows to display (default value is `5`).
+  - Agar aap `head()` me kuch specify nahi karte, toh by default yeh **top 5 rows** return karta hai.
+  - Example:
+    ```python
+    df.head()  # Same as df.head(5)
+    ```
+
+---
+
+#### 3. **Why is it useful?**
+- **Quick Overview**: DataFrame ke starting ke kuch rows dekhne ke liye useful hai, taaki aapko data structure aur contents ka **overview** mil sake.
+- **Debugging**: Jab aap kisi file ya query se data load karte ho, toh `head()` use karke aap verify kar sakte ho ki data sahi se load hua ya nahi.
+- **Sample Data**: Large datasets me puri table ko print karne ki zarurat nahi hoti, `head()` se ek chhota part dekhke kaam chal jata hai.
+
+---
+
+#### 4. **Example:**
+Agar DataFrame `df` ka data kuch aisa hai:
+| Name  | Age | Salary  |
+|-------|-----|---------|
+| Alice | 25  | 50000   |
+| Bob   | 30  | 60000   |
+| Eve   | 35  | 70000   |
+| John  | 40  | 80000   |
+| Jane  | 45  | 90000   |
+| Mike  | 50  | 100000  |
+
+Toh:
+```python
+df.head(5)
+```
+Output hoga:
+| Name  | Age | Salary  |
+|-------|-----|---------|
+| Alice | 25  | 50000   |
+| Bob   | 30  | 60000   |
+| Eve   | 35  | 70000   |
+| John  | 40  | 80000   |
+| Jane  | 45  | 90000   |
+
+---
+
+#### 5. **Other Variants of `head`**:
+- **Specify number of rows**:
+  ```python
+  df.head(10)  # Top 10 rows
+  ```
+- **Default behavior**:
+  ```python
+  df.head()  # Top 5 rows by default
+  ```
+
+---
+
+### **Reverse of `head`: `tail()`**
+Agar aap **last rows** dekhna chahte hain, toh `tail()` use karte hain:
+```python
+df.tail(5)  # Last 5 rows of the DataFrame
+```
+
+---
+
+### In Short:
+- **`df.head(5)`**: DataFrame ke **starting ke 5 rows** dekhne ke liye.  
+- Useful for **quick preview** of the data.  
+---
+# 4
+
+### **Code**:
+```python
+df.columns
+```
+
+---
+
+### **Explanation:**
+
+#### 1. **What does it do?**
+- `df.columns` Pandas DataFrame (`df`) ke **saare column names** ko return karta hai.  
+- Yeh ek **attribute** hai (function nahi hai), isiliye iske baad parentheses `()` lagane ki zarurat nahi hoti.
+
+---
+
+#### 2. **How does it work?**
+- **Attribute**:  
+  - `df.columns` ek **Index object** return karta hai, jo DataFrame ke **columns ke names (labels)** ko represent karta hai.
+  - Output me column names ek iterable object (Index) ke form me milta hai.
+
+---
+
+#### 3. **Why is it useful?**
+- **Understanding the Data**: Agar aapko DataFrame me kaun-kaun se columns hain yeh samajhna ho, toh yeh quick overview deta hai.
+- **Debugging**: Agar data load karte waqt column names galat aaye ho (e.g., spaces ya special characters), toh `df.columns` se unhe verify kar sakte hain.
+- **Renaming Columns**: Column names ko change ya clean karne se pehle unhe check karna zaruri hota hai.
+
+---
+
+#### 4. **Example**:
+Agar DataFrame `df` ka structure kuch aisa hai:
+| Name  | Age | Salary  |
+|-------|-----|---------|
+| Alice | 25  | 50000   |
+| Bob   | 30  | 60000   |
+
+Toh:
+```python
+df.columns
+```
+
+Output hoga:
+```
+Index(['Name', 'Age', 'Salary'], dtype='object')
+```
+
+Yahaan:
+- **`Index`**: Pandas ka special object jo column names ko represent karta hai.
+- **`dtype='object'`**: Yeh batata hai ki column names strings hain (object type).
+
+---
+
+#### 5. **Practical Use Cases**:
+
+- **List of Column Names**:
+  ```python
+  columns_list = list(df.columns)  # Convert to a Python list
+  print(columns_list)  # Output: ['Name', 'Age', 'Salary']
+  ```
+
+- **Renaming Columns**:
+  ```python
+  df.columns = ['Employee Name', 'Employee Age', 'Employee Salary']
+  ```
+
+- **Checking Column Name Presence**:
+  ```python
+  if 'Age' in df.columns:
+      print("Column 'Age' exists!")
+  ```
+
+---
+
+### **In Short**:
+- **`df.columns`**: DataFrame ke column names ko retrieve karne ka quick and efficient way.
+- Output: **Index object** containing all column labels.
+
+---
+# 5
+
+---
+`df.info()` ek method hai jo **pandas DataFrame** ki basic summary information display karta hai. Iska use aap **data exploration** me kar sakte hain taaki aapko quickly pata chal sake ki aapke DataFrame me kaunse columns hain, unka data type kya hai, aur missing values kitni hain.
+
+### Working of `df.info()`:
+
+1. **Basic Information**:
+   - **Number of entries** (rows) in the DataFrame.
+   - **Columns**: List of column names.
+   - **Data type** of each column (e.g., `int64`, `float64`, `object`, etc.).
+   - **Non-null count**: Each column me kitni non-null (non-missing) values hain.
+   - **Memory usage**: DataFrame ko kitni memory use ho rahi hai.
+
+### Example:
+
+Assume `df` ka content kuch is tarah hai:
+
+| Name  | Age | City      |
+|-------|-----|-----------|
+| Alice | 30  | New York  |
+| Bob   | 25  | Chicago   |
+| Charlie | 28  | San Francisco |
+
+Agar aap `df.info()` run karte hain, toh output kuch is tarah dikh sakta hai:
+
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 3 columns):
+ #   Column   Non-Null Count  Dtype  
+ ---  ------   --------------  -----  
+ 0   Name     3 non-null      object 
+ 1   Age      3 non-null      int64  
+ 2   City     3 non-null      object 
+dtypes: int64(1), object(2)
+memory usage: 111.0+ bytes
+```
+
+### Breakdown of the Output:
+- **`<class 'pandas.core.frame.DataFrame'>`**: Yeh show karta hai ki object ek pandas DataFrame hai.
+- **`RangeIndex: 3 entries, 0 to 2`**: DataFrame me 3 rows hain, jo index 0 se 2 tak hai.
+- **`Data columns (total 3 columns)`**: Total 3 columns hain.
+- **Columns' Details**:
+  - **Name**: Column name hai.
+  - **Non-Null Count**: Har column me kitni non-null (non-missing) values hain.
+  - **Dtype**: Data type of the column (e.g., `int64`, `object`).
+- **`memory usage: 111.0+ bytes`**: DataFrame ko kitni memory use ho rahi hai.
+
+### Use Case:
+- Jab aapko DataFrame ke structure, types, aur missing data ke baare me quickly info chahiye hota hai.
+  
+---
+# 6
+---
+`df.isnull().sum()` ek commonly used pandas method hai jo aapko **missing (null)** values ki count de deta hai, har column ke liye. Yeh method **NaN (Not a Number)** ya **None** values ko count karta hai jo data me missing hote hain.
+
+### Code Breakdown:
+
+1. **`df.isnull()`**:
+   - **Purpose**: Yeh method DataFrame me har cell ko check karta hai ki woh **missing (null)** hai ya nahi.
+   - **Working**: 
+     - Agar value **missing** hai, toh `True` return hota hai.
+     - Agar value **not missing** hai, toh `False` return hota hai.
+
+   **Example**:
+   Maan lijiye, yeh aapka DataFrame hai:
+
+   | Name  | Age | City      |
+   |-------|-----|-----------|
+   | Alice | 30  | New York  |
+   | Bob   | NaN | Chicago   |
+   | Charlie | 28  | San Francisco |
+
+   Agar aap `df.isnull()` run karenge, toh output kuch is tarah ka hoga:
+
+   ```
+      Name    Age   City
+   0  False  False  False
+   1  False   True  False
+   2  False  False  False
+   ```
+
+   - Yahan pe **Age** column me second row mein `NaN` hai, isliye uska value `True` hoga, baaki cells me `False` hai.
+
+---
+
+2. **`sum()`**:
+   - **Purpose**: `sum()` method `True` values ko count karta hai (because `True` ko internally 1 treat kiya jata hai, aur `False` ko 0 treat kiya jata hai).
+   - **Working**: Yeh har column ke liye **missing values** ka count return karta hai.
+
+   Agar aap `df.isnull().sum()` run karenge, toh yeh aapko **missing values ki count** har column ke liye batayega:
+
+   **Example**:
+   Given the previous DataFrame:
+
+   ```
+      Name    Age   City
+   0  False  False  False
+   1  False   True  False
+   2  False  False  False
+   ```
+
+   Output of `df.isnull().sum()` would be:
+
+   ```
+   Name    0
+   Age     1
+   City    0
+   dtype: int64
+   ```
+
+   - **Name**: 0 missing values
+   - **Age**: 1 missing value
+   - **City**: 0 missing values
+
+---
+
+### Final Summary:
+
+- **`df.isnull()`**: Har column me missing values ko `True` se mark karta hai.
+- **`sum()`**: `True` (missing) values ko count karta hai, jo **NaN** ya **None** hain.
+
+Iska use aap **missing data handling** ke liye karte hain, jahan aapko yeh pata chal sakta hai ki kaunse columns me missing values hain aur unhe kaise handle karna hai (like filling with a default value, removing rows, etc.).
+
+---
+
+# 7 
+---
+
