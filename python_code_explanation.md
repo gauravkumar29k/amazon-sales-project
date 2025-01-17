@@ -433,3 +433,103 @@ Iska use aap **missing data handling** ke liye karte hain, jahan aapko yeh pata 
 # 7 
 ---
 
+Yeh code `pandas` ka use karke ek DataFrame ke **`discounted_price`** column me string-based data ko **numeric format** me convert kar raha hai. Aapko step-by-step samjhata hoon ki yeh code kya kar raha hai:
+
+---
+
+### 1. **Initial Problem**:
+   - Column **`discounted_price`** me jo data hai wo string format me hai, aur usme unwanted characters (like `"₹"` aur `","`) hain.
+   - Data analysis aur calculations ke liye, aapko is column ko numeric format me convert karna hoga.
+
+---
+
+### Code Breakdown:
+
+#### 1st Line:
+```python
+df['discounted_price'] = df['discounted_price'].str.replace("₹",'')
+```
+   - **Purpose**: Is step me, column **`discounted_price`** ke andar jo `"₹"` (Indian Rupee Symbol) hai, usse remove kiya ja raha hai.
+   - **How it works**:
+     - `.str.replace()` function ka use karke `"₹"` ko empty string (`''`) se replace karte hain.
+   - **Example**:
+     - Input: `"₹1,200"`
+     - Output: `"1,200"`
+
+---
+
+#### 2nd Line:
+```python
+df['discounted_price'] = df['discounted_price'].str.replace(",",'')
+```
+   - **Purpose**: Is step me, column **`discounted_price`** ke andar jo commas `","` hain, unhe remove kiya ja raha hai.
+   - **How it works**:
+     - `.str.replace()` function ka use karke `","` ko empty string (`''`) se replace karte hain.
+   - **Example**:
+     - Input: `"1,200"`
+     - Output: `"1200"`
+
+---
+
+#### 3rd Line:
+```python
+df['discounted_price'] = df['discounted_price'].astype('float64')
+```
+   - **Purpose**: Is step me, **`discounted_price`** column ko string se **numeric format (`float64`)** me convert kiya ja raha hai.
+   - **How it works**:
+     - `.astype('float64')` method ka use karke string values ko **float type** me convert karte hain.
+   - **Example**:
+     - Input: `"1200"`
+     - Output: `1200.0` (float value)
+
+---
+
+### Full Process Example:
+
+Maan lijiye **`discounted_price`** column ka data kuch aisa hai:
+
+| discounted_price |
+|------------------|
+| ₹1,200           |
+| ₹2,500           |
+| ₹999             |
+
+1. **1st Line** (`str.replace("₹",'')`):
+   - Removes `"₹"`.
+   - Result:
+     | discounted_price |
+     |------------------|
+     | 1,200            |
+     | 2,500            |
+     | 999              |
+
+2. **2nd Line** (`str.replace(",",'')`):
+   - Removes commas `","`.
+   - Result:
+     | discounted_price |
+     |------------------|
+     | 1200             |
+     | 2500             |
+     | 999              |
+
+3. **3rd Line** (`astype('float64')`):
+   - Converts strings to **float64** type.
+   - Result:
+     | discounted_price |
+     |------------------|
+     | 1200.0           |
+     | 2500.0           |
+     | 999.0            |
+
+---
+
+### Why It’s Important for Data Analysis:
+1. **Numeric Format**:
+   - Data ko numeric format me convert karna zaroori hai taaki calculations, aggregations, aur visualizations (e.g., mean, sum, plot) kar sakein.
+   
+2. **Cleaning Unnecessary Characters**:
+   - Strings me `"₹"` aur `","` jaisi extra cheezein calculations ko block karengi. Unko remove karna zaroori hai.
+
+---
+# 8
+---
